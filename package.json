@@ -1,4 +1,21 @@
 {
+  "name": "autopaybot",
+  "version": "1.0.0",
+  "description": "Discord bot tự động hóa bán hàng với tích hợp PayOS",
+  "main": "index.ts",
+  "author": "NMQ",
+  "license": "MIT",
+  "keywords": ["discord", "bot", "payos", "payment", "automation", "ecommerce"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NMQ/AutoPayBot.git"
+  },
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "ts-node index.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "@discordjs/voice": "^0.17.0",
     "@google-cloud/text-to-speech": "^5.4.0",
