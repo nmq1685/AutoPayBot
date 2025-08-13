@@ -1,50 +1,49 @@
 # AutoPayBot 🤖💰
 
-Bot Discord tự động hóa việc bán hàng và thanh toán trực tuyến với tích hợp PayOS. Hỗ trợ quản lý sản phẩm, tạo kênh thanh toán riêng tư và xử lý đơn hàng tự động.
+A Discord bot that automates online sales and payments with PayOS integration. Supports product management, private payment channels, and automatic order processing.
 
-## ✨ Tính năng chính
+## ✨ Key Features
 
-### 🛒 Quản lý sản phẩm
-- **Tạo danh mục sản phẩm**: Tổ chức sản phẩm theo danh mục
-- **Thêm/chỉnh sửa sản phẩm**: Quản lý tên, mô tả, giá cả
-- **Quản lý kho hàng**: Theo dõi số lượng tồn kho
-- **Hiển thị sản phẩm**: Giao diện đẹp với embed và button tương tác
+### 🛒 Product management
+- **Create product categories**: Organise products into categories
+- **Add/edit products**: Manage name, description, price
+- **Inventory tracking**: Monitor stock levels
+- **Display products**: Attractive embeds with interactive buttons
 
-### 💳 Hệ thống thanh toán
-- **Tích hợp PayOS**: Thanh toán trực tuyến an toàn
-- **Tạo kênh riêng tư**: Mỗi giao dịch có kênh riêng
-- **QR Code thanh toán**: Tự động tạo mã QR
-- **Webhook xử lý**: Cập nhật trạng thái đơn hàng real-time
-- **Cooldown bảo vệ**: Chống spam tạo link thanh toán
+### 💳 Payment system
+- **PayOS integration**: Secure online payments
+- **Private channels**: Each transaction gets a dedicated channel
+- **Payment QR codes**: Automatic QR code generation
+- **Webhook processing**: Real-time order status updates
+- **Cooldown protection**: Prevent spam when creating payment links
 
-### 🔧 Quản lý hệ thống
-- **Phân quyền Admin**: Chỉ admin mới có thể quản lý
-- **Logging**: Ghi log các giao dịch và hoạt động
-- **Cấu hình kênh**: Thiết lập kênh mở/đóng cho thanh toán
-- **Database tự động**: Tự động tạo bảng và cấu trúc DB
+### 🔧 System management
+- **Admin permissions**: Only admins can manage the bot
+- **Logging**: Record transactions and actions
+- **Channel configuration**: Configure open/closed payment channels
+- **Automatic database setup**: Tables and structure created at first launch
 
-## 🚀 Cài đặt
+## 🚀 Installation
 
-### Yêu cầu hệ thống
-- Node.js 16.0.0 trở lên
+### Requirements
+- Node.js 16.0.0 or higher
 - MySQL/MariaDB
 - Discord Bot Token
 - PayOS API credentials
 
-### 1. Clone repository
+### 1. Clone the repository
 ```bash
 git clone <repository-url>
 cd AutoPayBot
 ```
 
-### 2. Cài đặt dependencies
+### 2. Install dependencies
 ```bash
 npm install
 ```
 
-### 3. Cấu hình môi trường
-Tạo file `.env` với nội dung:
-
+### 3. Configure environment
+Create a `.env` file with the following content:
 ```env
 # Discord Bot
 TOKEN=your_discord_bot_token
@@ -67,10 +66,10 @@ PAYOS_WEBHOOK_URL=https://yourdomain.com/payos-webhook
 PORT=3001
 ```
 
-### 4. Thiết lập Database
-Bot sẽ tự động tạo database và các bảng cần thiết khi khởi động lần đầu.
+### 4. Database setup
+The bot automatically creates the database and required tables on first run.
 
-### 5. Chạy bot
+### 5. Start the bot
 ```bash
 # Development
 npm run dev
@@ -79,26 +78,26 @@ npm run dev
 npm start
 ```
 
-## 📋 Lệnh Discord
+## 📋 Discord Commands
 
-### Lệnh Slash Commands
-- `/help` - Hiển thị danh sách lệnh
-- `/createcategories` - Tạo danh mục sản phẩm
-- `/addproduct` - Thêm sản phẩm mới
-- `/addstock` - Thêm số lượng hàng tồn kho
-- `/setcategory` - Thiết lập danh mục cho kênh thanh toán
-- `/setlog` - Thiết lập kênh ghi log
-- `/priceandpay` - Hiển thị sản phẩm và tạo thanh toán
+### Slash Commands
+- `/help` – Display the command list
+- `/createcategories` – Create product categories
+- `/addproduct` – Add a new product
+- `/addstock` – Add stock quantity
+- `/setcategory` – Set the payment channel category
+- `/setlog` – Set the logging channel
+- `/priceandpay` – Show products and create payment links
 
 ### Prefix Commands
-Tất cả slash commands cũng hỗ trợ prefix (mặc định: `!`)
+All slash commands also support a prefix (default: `!`).
 
-## 🏗️ Cấu trúc dự án
+## 🏗️ Project Structure
 
 ```
 AutoPayBot/
 ├── commands/
-│   └── system/           # Các lệnh hệ thống
+│   └── system/           # System commands
 │       ├── addproduct.ts
 │       ├── addstock.ts
 │       ├── createcategories.ts
@@ -121,7 +120,7 @@ AutoPayBot/
 ├── utils/                # Utility functions
 │   └── embedFooter.ts
 ├── db.ts                 # Database configuration
-├── expressServer.ts      # Express server cho webhook
+├── expressServer.ts      # Express server for the webhook
 ├── index.ts              # Entry point
 ├── payosUtils.ts         # PayOS utilities
 ├── webhookHandler.ts     # Webhook handler
@@ -130,77 +129,77 @@ AutoPayBot/
 
 ## 💾 Database Schema
 
-### Bảng chính
-- `categories` - Danh mục sản phẩm
-- `products` - Thông tin sản phẩm
-- `orders` - Đơn hàng và trạng thái thanh toán
-- `stock_categories` - Danh mục kho hàng
-- `stock_items` - Sản phẩm trong kho
-- `channel_categories` - Cấu hình kênh thanh toán
-- `log_configs` - Cấu hình logging
+### Main tables
+- `categories` – Product categories
+- `products` – Product information
+- `orders` – Orders and payment status
+- `stock_categories` – Inventory categories
+- `stock_items` – Inventory items
+- `channel_categories` – Payment channel configuration
+- `log_configs` – Logging configuration
 
-## 🔄 Workflow thanh toán
+## 🔄 Payment Workflow
 
-1. **Khách hàng chọn sản phẩm** từ menu
-2. **Bot tạo kênh riêng tư** cho giao dịch
-3. **Tạo link PayOS** với QR code
-4. **Khách hàng thanh toán** qua QR code
-5. **Webhook nhận thông báo** từ PayOS
-6. **Cập nhật trạng thái** đơn hàng tự động
-7. **Gửi thông báo** và đóng kênh
+1. **Customer selects products** from the menu  
+2. **Bot creates a private channel** for the transaction  
+3. **Generate PayOS link** with QR code  
+4. **Customer pays** via QR code  
+5. **Webhook receives notification** from PayOS  
+6. **Order status updates** automatically  
+7. **Notification sent** and channel closed  
 
-## 🛡️ Bảo mật
+## 🛡️ Security
 
-- **Xác thực webhook**: Sử dụng HMAC-SHA256
-- **Phân quyền**: Chỉ admin có thể quản lý
-- **Kênh riêng tư**: Mỗi giao dịch có kênh riêng
-- **Cooldown**: Chống spam tạo link thanh toán
-- **Validation**: Kiểm tra dữ liệu đầu vào
+- **Webhook verification** using HMAC-SHA256  
+- **Permissions**: only admins can manage the bot  
+- **Private channels**: each transaction has its own channel  
+- **Cooldown**: prevents spam when creating payment links  
+- **Validation**: input data is validated  
 
-## 🔧 Cấu hình PayOS
+## 🔧 PayOS Configuration
 
-1. Đăng ký tài khoản tại [PayOS](https://payos.vn)
-2. Tạo ứng dụng và lấy API credentials
-3. Cấu hình webhook URL: `https://yourdomain.com/payos-webhook`
-4. Thêm credentials vào file `.env`
+1. Register at [PayOS](https://payos.vn)  
+2. Create an app and obtain API credentials  
+3. Set up the webhook URL: `https://yourdomain.com/payos-webhook`  
+4. Add the credentials to the `.env` file  
 
 ## 📝 Logging
 
-Bot ghi log các hoạt động quan trọng:
-- Tạo đơn hàng
-- Thanh toán thành công/thất bại
-- Lỗi hệ thống
+The bot logs important activities:
+- Order creation
+- Successful/failed payments
+- System errors
 - Webhook events
 
-## 🤝 Đóng góp
+## 🤝 Contributing
 
-1. Fork repository
-2. Tạo feature branch
-3. Commit changes
-4. Push to branch
-5. Tạo Pull Request
+1. Fork the repository  
+2. Create a feature branch  
+3. Commit your changes  
+4. Push to your branch  
+5. Open a Pull Request  
 
 ## 📄 License
 
-MIT License - xem file [LICENSE](LICENSE) để biết thêm chi tiết.
+MIT License – see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Hỗ trợ
+## 🆘 Support
 
-Nếu gặp vấn đề, vui lòng:
-1. Kiểm tra logs trong console
-2. Xác nhận cấu hình `.env` đúng
-3. Kiểm tra kết nối database
-4. Tạo issue trên GitHub
+If you encounter issues:
+1. Check console logs  
+2. Verify your `.env` configuration  
+3. Ensure database connectivity  
+4. Open an issue on GitHub  
 
-## 🔮 Tính năng sắp tới
+## 🔮 Upcoming Features
 
-- [ ] Hỗ trợ nhiều phương thức thanh toán
-- [ ] Dashboard web quản lý
-- [ ] Báo cáo doanh thu
-- [ ] Hệ thống coupon/giảm giá
-- [ ] Tích hợp email notifications
-- [ ] Multi-language support
+- [ ] Support for additional payment methods  
+- [ ] Web dashboard  
+- [ ] Revenue reports  
+- [ ] Coupon/discount system  
+- [ ] Email notifications  
+- [ ] Multi-language support  
 
 ---
 
-**Được phát triển với ❤️ bởi NMQ**
+**Built with ❤️ by NMQ**
